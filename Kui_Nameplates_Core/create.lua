@@ -1027,6 +1027,7 @@ end
 do
     local BOSS = {0,.5,0,.5}
     local RARE = {.5,1,.5,1}
+    local ELITE = {0,.5,.5,1}
 
     local function UpdateStateIcon(f)
         if  not SHOW_STATE_ICONS or
@@ -1044,6 +1045,10 @@ do
         elseif f.state.classification == 'rare' or f.state.classification == 'rareelite' then
             f.StateIcon:SetTexCoord(unpack(RARE))
             f.StateIcon:SetVertexColor(1,.8,.2)
+            f.StateIcon:Show()
+        elseif f.state.classification == 'elite' then
+            f.StateIcon:SetTexCoord(unpack(ELITE))
+            f.StateIcon:SetVertexColor(1,.74,0)
             f.StateIcon:Show()
         else
             f.StateIcon:Hide()
